@@ -1,0 +1,9 @@
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\Entity.dll.config
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\Entity.dll
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\Entity.pdb
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\EntityFramework.dll
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\EntityFramework.xml
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\obj\Debug\Entity.dll
+c:\Users\nuuklu\documents\visual studio 2015\Projects\AnketV2\Entity\obj\Debug\Entity.pdb

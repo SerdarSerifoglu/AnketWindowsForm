@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnketV2", "AnketV2\AnketV2.csproj", "{E5D5AFD8-7421-47CE-A156-4F1B8AF4F6A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{6E7E1B1B-8A36-4DF1-BD9B-5AAEAE6E814F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{68DDD5F7-03EE-41E0-A3CE-AC99E9ECED7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5D5AFD8-7421-47CE-A156-4F1B8AF4F6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D5AFD8-7421-47CE-A156-4F1B8AF4F6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D5AFD8-7421-47CE-A156-4F1B8AF4F6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D5AFD8-7421-47CE-A156-4F1B8AF4F6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E7E1B1B-8A36-4DF1-BD9B-5AAEAE6E814F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E7E1B1B-8A36-4DF1-BD9B-5AAEAE6E814F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E7E1B1B-8A36-4DF1-BD9B-5AAEAE6E814F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E7E1B1B-8A36-4DF1-BD9B-5AAEAE6E814F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68DDD5F7-03EE-41E0-A3CE-AC99E9ECED7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68DDD5F7-03EE-41E0-A3CE-AC99E9ECED7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68DDD5F7-03EE-41E0-A3CE-AC99E9ECED7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68DDD5F7-03EE-41E0-A3CE-AC99E9ECED7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
