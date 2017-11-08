@@ -20,26 +20,20 @@ namespace AnketV2
         {
             InitializeComponent();
         }
-
         private void SoruDuzenleForm_Load(object sender, EventArgs e)
-        {
-            
+        {            
             textBox2.Text = GelenSoru.SoruCumlesi;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {//SoruDuzenleForm düzenle butonu
-
-            AnketContext db = new AnketContext(); //Bir kaydı düzenlemek için db'den çağırmamız gerekiyor.
+            AnketContext db = new AnketContext(); 
             var duzenlenecek = db.Sorular.Find(GelenSoru.SoruID);
             duzenlenecek.SoruCumlesi = textBox2.Text;
-            db.Entry(duzenlenecek).State = EntityState.Modified;//using System.Data.Entity yapmamız lazım ampulden.
+            db.Entry(duzenlenecek).State = EntityState.Modified;
             db.SaveChanges();
-
             Form1 f = (Form1)Application.OpenForms["Form1"];
             f.SorulariYenile();
             f.CevaplariYenile();
-
         }
     }
 }

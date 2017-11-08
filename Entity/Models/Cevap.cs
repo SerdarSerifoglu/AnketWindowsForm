@@ -13,19 +13,15 @@ namespace Entity
     {
         [Key]
         public int CevapID { get; set; }
-        [ForeignKey("CevabiVerenKisi")]// Bu Fk'nın dolduracağı virtual Navigation Property CevabiVerenKisi'dir.
+        [ForeignKey("CevabiVerenKisi")]
         public int KisiID { get; set; }
         [ForeignKey("Sorusu")]
         public int SoruID { get; set; }
         [Required]
         public Yanit Yanit { get; set; }
-        public virtual Kisi CevabiVerenKisi { get; set; } //Yanıtı kimin verdiğini görebilmek için
-        public virtual Soru Sorusu { get; set; } //Hangi sorunun yanıtı olabildiğini görebilmek için
-
-
-
+        public virtual Kisi CevabiVerenKisi { get; set; } 
+        public virtual Soru Sorusu { get; set; } 
     }
-
     public enum Yanit
     {
        Hayir,

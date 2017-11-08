@@ -11,8 +11,6 @@ namespace Entity.ViewModels
         public int CevapID { get; set; }
         public string AdSoyad { get; set; }
         public string Soru { get; set; }
-        public string Cevap { get; set; }
-       
-
+        public string Cevap { get; set; }      
     }
 }

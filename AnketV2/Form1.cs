@@ -19,23 +19,16 @@ namespace AnketV2
         {
             InitializeComponent();
         }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
         AnketContext db = new AnketContext();
         Soru soru = new Soru();
         Cevap cevap = new Cevap();
         private void button2_Click(object sender, EventArgs e)
-        {
-
+        {//Soru kaydet butonu
             soru.SoruCumlesi = textBox2.Text;
             db.Sorular.Add(soru);
             db.SaveChanges();
             SorulariYenile();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             SorulariYenile();
@@ -44,7 +37,6 @@ namespace AnketV2
         public void CevaplariYenile()
         {
             dataGridView2.DataSource = null;
-            //dataGridView2.DataSource = db.Cevaplar.ToList();
             dataGridView2.DataSource = db.Cevaplar.Select(x => new CevapViewModel()
             {
                 AdSoyad = x.CevabiVerenKisi.AdSoyad,
@@ -52,8 +44,6 @@ namespace AnketV2
                 Cevap = x.Yanit.ToString(),
                 CevapID = x.CevapID
             }).ToList();
-
-
         }
         public void SorulariYenile()
         {
@@ -61,53 +51,35 @@ namespace AnketV2
             dataGridView1.DataSource = db.Sorular.ToList();
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Controls.Clear();
-
             foreach (Soru soru in db.Sorular)
             {
                 Label lbl = new Label();
                 lbl.AutoSize = true;
                 lbl.Text = soru.SoruCumlesi;
-                flowLayoutPanel1.Controls.Add(lbl);
-                //flowLayoutPanel1.SetFlowBreak(lbl, true);
-
-
-
+                flowLayoutPanel1.Controls.Add(lbl);               
                 RadioButton r1 = new RadioButton();
-                r1.Name = "Soru_" + soru.SoruID; //radiobuttonlara isim verdik.
+                r1.Name = "Soru_" + soru.SoruID; 
                 r1.Text = "Evet";
                 RadioButton r2 = new RadioButton();
-                r2.Name = "Soru_" + soru.SoruID; //radiobuttonlara isim verdik.
+                r2.Name = "Soru_" + soru.SoruID; 
                 r2.Text = "Hayir";
-                //flowLayoutPanel1.SetFlowBreak(r2,true);
-
                 FlowLayoutPanel p = new FlowLayoutPanel();
                 p.Width = 400;
                 p.Height = 40;
                 p.Controls.Add(r1);
                 p.Controls.Add(r2);
-                flowLayoutPanel1.Controls.Add(p);
-
-
-                //flowLayoutPanel1.SetFlowBreak(p, true);
-                /*Radio button yerşne combobox kullanmak istersek
-                 ComboBox c1 = new ComboBox();
-                c1.Items.Add("Evet");
-                c1.Items.Add("Hayır");
-                flowLayoutPanel1.Controls.Add(c1);
-                flowLayoutPanel1.SetFlowBreak(c1,true);*/
-                
+                flowLayoutPanel1.Controls.Add(p);                
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {//AnketKayıtButonu
-            foreach (Control pnl in flowLayoutPanel1.Controls)//form'a eklediğimiz flowlayoutpanelin içindeki kontrolleri Control tipinde bir pnl nesnesine aktarıyor.
+            foreach (Control pnl in flowLayoutPanel1.Controls)
             {
-                if (pnl is FlowLayoutPanel)//pnl nesnesi FlowLayoutPanel mi? diye soruyoruz.
+                if (pnl is FlowLayoutPanel)
                 {
                     foreach (RadioButton item in ((FlowLayoutPanel)pnl).Controls)
                     {
-
                         RadioButton r = (RadioButton)item;
                         if (r.Checked)
                         {
@@ -116,8 +88,7 @@ namespace AnketV2
                             Cevap cevap = new Cevap();
                             cevap.SoruID = SID;
                             cevap.Yanit = r.Text == "Evet" ? Yanit.Evet : Yanit.Hayir;
-
-                            Kisi kisi = db.Kisiler.Where(x => x.AdSoyad == textBox1.Text).FirstOrDefault();//FirstorDefault() bulabilirse ilk kişiyi getirir bulamazsa null getirir.
+                            Kisi kisi = db.Kisiler.Where(x => x.AdSoyad == textBox1.Text).FirstOrDefault();
                             if (kisi != null)
                                 cevap.KisiID = kisi.KisiID;
                             else
@@ -127,7 +98,6 @@ namespace AnketV2
                                 db.Kisiler.Add(kisi);
                                 db.SaveChanges();
                                 cevap.KisiID = kisi.KisiID;
-
                             }
                             db.Cevaplar.Add(cevap);
                             db.SaveChanges();
@@ -137,10 +107,7 @@ namespace AnketV2
             }
             CevaplariYenile();
             MessageBox.Show("Kaydedildi");
-
-
         }
-
         private void button3_Click(object sender, EventArgs e)
         {//sorular sil
             if (dataGridView1.SelectedRows.Count == 0)
@@ -156,16 +123,11 @@ namespace AnketV2
                 db.SaveChanges();
                 SorulariYenile();
             }
-            //var a = dataGridView1.SelectedRows[0].Cells[0].Value;
-
         }
-
         private void button4_Click(object sender, EventArgs e)
         {//Düzenle butonu
-            //Benim yaptığım yol
            if(dataGridView1.SelectedRows.Count!=0)
-            {
-                
+            {                
                 Soru a = new Soru();
                 a.SoruCumlesi= dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 a.SoruID = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
@@ -177,21 +139,7 @@ namespace AnketV2
             {
                 MessageBox.Show("Soru seçmedinki düzenleyesin?");
             }
-
-           // Hocanın Yolu
-            /*if (dataGridView1.SelectedRows.Count == 0)
-                MessageBox.Show("Soru seçiniz");
-            else
-            {
-                SoruDuzenleForm form = new SoruDuzenleForm();
-                int secilenID = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                Soru duzenlenecek = db.Sorular.Find(secilenID);
-                form.GelenSoru = duzenlenecek;
-                form.Show();
-            }
-            */
         }
-
         private void button6_Click(object sender, EventArgs e)
         {//Cevaplar Sil
             if (dataGridView2.SelectedRows.Count == 0)
@@ -207,25 +155,7 @@ namespace AnketV2
                 db.SaveChanges();
                 CevaplariYenile();
             }
-            //CevapID kullanmadan yapma Hocanın yaptığı
-            //if (dataGridView2.SelectedRows.Count == 0)
-            //    MessageBox.Show("Cevap seçiniz");
-            //else
-            //{
-            //    List<Cevap> silinecekler = new List<Cevap>();
-            //    foreach (DataGridViewRow item in dataGridView2.SelectedRows)
-            //    {
-            //        var silinecek = db.Cevaplar.ToList()[item.Index];
-            //        silinecekler.Add(silinecek);
-            //        //int CevapID = (int)item.Cells[0].Value;
-            //        //Cevap silinecek = db.Cevaplar.Find(CevapID);
-            //        //db.Cevaplar.Remove(silinecek);
-            //    }
-            //    db.Cevaplar.RemoveRange(silinecekler);
-            //    db.SaveChanges();
-            //    //db.SaveChanges();
-            //    //Yenile();
-            //    CevaplariYenile();
+           
             }
         }
     }

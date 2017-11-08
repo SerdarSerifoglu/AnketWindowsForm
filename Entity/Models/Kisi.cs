@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-   [Table("tblKisiler")] //db'de oluşacak tablonun adını yazıyoruz
+   [Table("tblKisiler")] 
     public class Kisi
     {
         [Key]
