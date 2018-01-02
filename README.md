@@ -1,5 +1,5 @@
 # AnketWindowsForm
-C# Anket Programı WindowsForm
+C# Anket Programı WindowsForm //
 Uygulama İçeriği:	
 Bir kahve dükkanın kullanıcı giriş kontrolü olan, ürün eklenebilen, kayıtlı ürünlerden sipariş düzenlenebilen, satışları günlük aylık olacak şekilde filtreler uygulayarak raporlayan bir dükkan uygulaması 
 Kullanılan Teknolojiler:	
